@@ -302,7 +302,11 @@ a {
     margin-left: 10px;
     color: #20223b;
   }
+
   /* Affected States */
+  .picker {
+    border: 1px solid white;
+  }
   .affected-states {
     height: 100%;
   }

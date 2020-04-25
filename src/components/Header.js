@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { CountryDetails } from "./CountryDetails";
+import { AffectedStateDetails } from "./AffectedStateDetails";
 
 export const Header = () => {
   const [countryData, setCountryData] = useState([]);
@@ -47,6 +48,7 @@ export const Header = () => {
         </div>
       </nav>
       <CountryDetails value={countryName} />
+      <AffectedStateDetails value={countryName} />
     </React.Fragment>
   );
 };
