@@ -1,38 +1,348 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css?family=Comic+Neue|Lato:100,300,300i,400,400i|Open+Sans&display=swap");
+
+:root {
+  --font-family: "Open Sans", sans-serif;
+  --font-family-2: "Lato", sans-serif;
+  --font-family-3: "Comic Neue", cursive;
+  --color-bg-white: #f7f7fb;
+  --color-green: #14ca7c;
+  --color-bg-grey: #a3a6b8;
+  --color-black: #20223b;
+  --color-dark-blue: #341bd0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: var(--font-family);
+  line-height: 1.6;
+  color: var(--color-black);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  /* background-image: url("../covid.jpg");
+  opacity: 0.9; */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+a {
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* utility class */
+.container {
+  max-width: 980px;
+  padding: 1.6rem;
+  margin: auto;
+  overflow: hidden;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.pie-chart {
+  margin-top: 50px;
+  margin-left: 20px;
+  height: 400px;
+  width: 470px;
+}
+
+.count {
+  font-weight: 700;
+  font-size: 46px;
+}
+
+.heading-secondary {
+  font-family: var(--font-family-3);
+}
+.heading-primary {
+  font-family: var(--font-family-3);
+  margin-bottom: 20px;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 290px;
+}
+
+.fa-virus {
+  color: lightcoral;
+  transition-property: color;
+  transition-duration: 0.9s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0.3s;
+}
+
+.fa-viruses,
+.fa-virus-slash,
+.fa-user-minus {
+  color: lightcoral;
+}
+.fa-chart-bar {
+  color: var(--color-green);
+}
+
+.fa-street-view {
+  text-align: center;
+  margin-left: 50px;
+  font-size: 40px;
+  /* border: 1px solid red; */
+  border-radius: 50px;
+  padding: 6px;
+}
+
+.fa-arrow-circle-down {
+  color: red;
+}
+
+.fa-arrow-circle-up {
+  color: purple;
+}
+
+.fa-level-down-alt {
+  margin-left: 10px;
+  color: var(--color-black);
+}
+.logo-name {
+  font-weight: 700;
+  font-family: var(--font-family-3);
+  font-size: 22px;
+  letter-spacing: 1.5px;
+}
+.logo-c {
+  font-size: 42px;
+  font-weight: initial;
+}
+
+.country-select {
+  width: 70%;
+  height: 30px;
+  border: none;
+  margin-top: 20px;
+  font-family: var(--font-family-3);
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 14px;
+}
+
+.country-select:focus {
+  border: none;
+  outline: none;
+}
+
+.main-section,
+.main-aside {
+  background-color: var(--color-bg-white);
+  max-height: 100%;
+}
+
+.btn-primary {
+  margin: auto;
+  padding: 0.6rem 1.9rem;
+  border-radius: 35px;
+  font-family: var(--font-family-3);
+  letter-spacing: 2.5px;
+  color: var(--color-black);
+}
+
+.btn-primary:hover {
+  background-color: black;
+  border: 1px dotted grey;
+}
+
+/* Country Details */
+.country-details .parent-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  grid-gap: 60px;
+}
+
+.country-details .parent-card .card {
+  padding: 1.4rem 0;
+  background-color: white;
+  border-radius: 5px;
+  border-top: 2px solid red;
+}
+
+.country-details .parent-card .card:first-child {
+  border-top: 2px solid rebeccapurple;
+}
+.country-details .parent-card .card:nth-child(2) {
+  border-top: 2px solid var(--color-green);
+}
+
+/* states */
+.state-headings {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 290px;
+}
+
+.state-headings a {
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
+  margin-bottom: 30px;
+}
+
+.state-name {
+  text-transform: uppercase;
+}
+
+.affected-states .parent-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.affected-states .parent-card .card {
+  margin: 9px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 20px;
+  background-color: white;
+  border: 0.6px solid var(--color-bg-white);
+  border-radius: 15px;
+}
+
+/* Aside Section */
+.main-aside {
+  padding: 2rem;
+}
+
+.main-aside .parent-card {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.main-aside .parent-card .card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem 0;
+  border-bottom: 1px dotted grey;
+}
+
+.main-aside .parent-card .card .fa-square {
+  margin-right: 12px;
+}
+
+.main-aside .parent-card .card:nth-child(1) .fa-square {
+  font-size: 16px;
+  color: var(--desaturated-blue);
+}
+
+.main-aside .parent-card .card:nth-child(2) .fa-square {
+  color: yellowgreen;
+}
+
+.main-aside .parent-card .card:nth-child(3) .fa-square {
+  color: hsl(348, 97%, 39%);
+}
+
+.main-aside .parent-card .sign {
+  font-size: bold;
+  font-size: 19px;
+  letter-spacing: 1.2px;
+}
+
+/* media queries */
+@media (max-width: 500px) {
+  body {
+    display: grid;
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
+  .heading-primary {
+    font-family: var(--font-family-3);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .country-details .parent-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+  }
+
+  .affected-states .parent-card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .state-headings {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+  .logo-name {
+    font-size: 30px;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: transparent;
+    color: #20223b;
+  }
+
+  .btn-primary:hover {
+    border: 1px dotted grey;
+  }
+  .fa-level-down-alt {
+    margin-left: 10px;
+    color: #20223b;
+  }
+  /* Affected States */
+  .affected-states {
+    height: 100%;
+  }
+  .state-headings {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .state-headings a {
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+    margin-bottom: 30px;
+  }
+
+  .affected-states .parent-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
+
+  .affected-states .parent-card .card {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    height: 100%;
+  }
+  .fa-street-view {
+    text-align: center;
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  .state-name {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    font-weight: 700;
   }
 }
