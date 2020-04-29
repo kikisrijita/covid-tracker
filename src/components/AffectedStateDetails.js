@@ -5,8 +5,7 @@ import "react-datepicker/dist/react-datepicker-cssmodules.css";
 const moment = require("moment");
 
 export const AffectedStateDetails = ({ value }) => {
-  const selectDate = moment();
-  let newDate = selectDate.format("M-DD-YYYY");
+  let newDate = moment().format("M-DD-YYYY");
   const [startDate, setStartDate] = useState(newDate);
   const [affectedStateDetails, setAffectedStateDetails] = useState([
     {
@@ -17,24 +16,20 @@ export const AffectedStateDetails = ({ value }) => {
   ]);
 
   useEffect(() => {
-    setAffectedStates(newDate);
-  }, []);
-
-  let setAffectedStates = (changeDate) => {
-    fetch(`https://covid19.mathdro.id/api/daily/${changeDate}`)
+    fetch(`https://covid19.mathdro.id/api/daily/${startDate}`)
       .then((res) => res.json())
       .then((data) => {
         let arr = data.filter((obj) => obj.countryRegion == value);
         setAffectedStateDetails(arr);
       })
       .catch((err) => alert(err));
-  };
+  }, [value, startDate]);
+
   console.log(affectedStateDetails);
 
   let onChangeDate = (date) => {
     let changeDate = moment(date).format("M-DD-YYYY");
     setStartDate(changeDate);
-    setAffectedStates(changeDate);
   };
 
   return (

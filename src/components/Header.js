@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CountryDetails } from "./CountryDetails";
 import { AffectedStateDetails } from "./AffectedStateDetails";
+import { AllCharts } from "./AllCharts";
 
 export const Header = () => {
   const [countryData, setCountryData] = useState([]);
