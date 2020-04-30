@@ -46,7 +46,11 @@ export const PieChart = () => {
             },
           ],
           // These labels appear in the legend and in the tooltips when hovering different arcs
-          labels: ["Confirmed", "Recovered", "Death"],
+          labels: [
+            `Confirmed: ${worldwideDetails.confirmed}`,
+            `Recovered: ${worldwideDetails.recovered}`,
+            `Death: ${worldwideDetails.deaths}`,
+          ],
         }}
         options={{
           cutoutPercentage: 50,

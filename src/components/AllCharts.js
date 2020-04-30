@@ -1,5 +1,6 @@
 import React from "react";
 import { PieChart } from "./PieChart";
+import { LineChart } from "./LineChart";
 
 export const AllCharts = () => {
   return (
@@ -8,6 +9,7 @@ export const AllCharts = () => {
         W<i className="fas fa-globe fa-1x"></i>rldwide Analytics
       </h1>
       <PieChart />
+      <LineChart />
     </aside>
   );
 };

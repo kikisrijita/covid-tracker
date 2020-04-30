@@ -61,7 +61,8 @@ a {
 .heading-secondary2 {
   font-family: var(--font-family-3);
   text-align: center;
-  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 .heading-primary {
   font-family: var(--font-family-3);
@@ -138,6 +139,9 @@ a {
   font-weight: 700;
   letter-spacing: 3px;
   font-size: 14px;
+  border-radius: 5px;
+  border-left: 1px solid var(--color-green);
+  border-right: 1px solid var(--color-green);
 }
 
 .country-select:focus {
@@ -179,14 +183,14 @@ a {
   padding: 1.4rem 0;
   background-color: white;
   border-radius: 5px;
-  border-top: 2px solid rgba(255, 99, 132, 1);
+  border-top: 3px solid rgba(255, 99, 132, 1);
 }
 
 .country-details .parent-card .card:first-child {
-  border-top: 2px solid var(--color-green);
+  border-top: 3px solid var(--color-green);
 }
 .country-details .parent-card .card:nth-child(2) {
-  border-top: 2px solid rgba(255, 206, 86, 1);
+  border-top: 3px solid rgba(255, 206, 86, 1);
 }
 
 /* states */
@@ -249,22 +253,41 @@ a {
 }
 
 .main-aside .parent-card .card:nth-child(1) .fa-square {
-  font-size: 16px;
-  color: var(--desaturated-blue);
+  color: var(--color-green);
 }
 
 .main-aside .parent-card .card:nth-child(2) .fa-square {
-  color: yellowgreen;
+  color: rgba(255, 206, 86, 1);
 }
 
 .main-aside .parent-card .card:nth-child(3) .fa-square {
-  color: hsl(348, 97%, 39%);
+  color: rgba(255, 99, 132, 1);
 }
 
 .main-aside .parent-card .sign {
-  font-size: bold;
-  font-size: 19px;
+  font-size: 14px;
   letter-spacing: 1.2px;
+}
+
+.date-picker {
+  text-align: center;
+  border: none;
+  height: 24px;
+  width: 104px;
+  border-radius: 5px;
+  cursor: pointer;
+  border-left: 1px solid var(--color-green);
+  border-right: 1px solid var(--color-green);
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.date-picker:focus {
+  border-left: none;
+  border-right: none;
+  border-top: 1px solid rgba(255, 206, 86, 1);
+  border-bottom: 1px solid rgba(255, 206, 86, 1);
+  outline: none;
 }
 
 /* media queries */

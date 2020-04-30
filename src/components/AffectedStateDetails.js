@@ -36,8 +36,9 @@ export const AffectedStateDetails = ({ value }) => {
     <section className="affected-states">
       <div className="container">
         <div className="state-headings">
-          <h1 className="heading-primary">Affected States</h1>
+          <h1 className="heading-primary">Affected States / Country</h1>
           <DatePicker
+            className="date-picker"
             value={startDate}
             onChange={(date) => onChangeDate(date)}
           />
