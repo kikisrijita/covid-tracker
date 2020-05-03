@@ -12,7 +12,7 @@
 
 ## Desktop View! 👋
 
-![Design preview for the Covid-19 Tracker landing page with alternating feature blocks coding challenge](./designs/desktop.png)
+![Design preview for the Covid-19 Tracker landing page with alternating feature blocks coding challenge](./designs/Desktop.png)
 
 ## Mobile View! 👋
 
