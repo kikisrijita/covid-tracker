@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import "react-datepicker/dist/react-datepicker-cssmodules.css";
+// import "react-datepicker/dist/react-datepicker-cssmodules.css";
 const moment = require("moment");
 
 export const AffectedStateDetails = ({ value }) => {
@@ -20,7 +20,17 @@ export const AffectedStateDetails = ({ value }) => {
       .then((res) => res.json())
       .then((data) => {
         let arr = data.filter((obj) => obj.countryRegion == value);
-        setAffectedStateDetails(arr);
+        if (arr.length === 0) {
+          setAffectedStateDetails([
+            {
+              provinceState: "Still no cases",
+              confirmed: "No confirmed cases",
+              deaths: "No Death cases",
+            },
+          ]);
+        } else {
+          setAffectedStateDetails(arr);
+        }
       })
       .catch((err) => alert(err));
   }, [value, startDate]);
@@ -36,8 +46,11 @@ export const AffectedStateDetails = ({ value }) => {
     <section className="affected-states">
       <div className="container">
         <div className="state-headings">
-          <h1 className="heading-primary">Affected States / Country</h1>
+          <h2 className="heading-primary">
+            Choose dates to see affected states / country details:
+          </h2>
           <DatePicker
+            selected={new Date(startDate)}
             className="date-picker"
             value={startDate}
             onChange={(date) => onChangeDate(date)}
@@ -46,6 +59,7 @@ export const AffectedStateDetails = ({ value }) => {
 
         <div className="parent-card">
           {affectedStateDetails.map((doc, index) => {
+            console.log("test", index);
             return (
               <div className="card">
                 <i className="fas fa-street-view fa-3x"></i>

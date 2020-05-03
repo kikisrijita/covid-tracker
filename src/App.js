@@ -5,12 +5,14 @@ import { AllCharts } from "./components/AllCharts";
 
 function App() {
   return (
-    <Fragment>
+    <div className="root-class">
       <div className="main-section">
         <Header />
       </div>
-      <AllCharts />
-    </Fragment>
+      <div className="main-aside">
+        <AllCharts />
+      </div>
+    </div>
   );
 }
 

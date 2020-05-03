@@ -25,7 +25,7 @@ export const CountryDetails = ({ value }) => {
   return (
     <section className="country-details">
       <div className="container">
-        <h1 className="heading-primary">Country Details</h1>
+        <h1 className="heading-primary">Country Details : </h1>
         <div className="parent-card">
           <div className="card">
             <i className="fas fa-viruses fa-2x"></i>
