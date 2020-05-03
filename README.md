@@ -1,9 +1,25 @@
-# Covid-19 Tracker Application to track all Information about the confirmed Cases, Recovered Cases, & overall Deaths.
+# Covid-19 Tracker Application to track all Information about the worldwide cases.
 
-![Design preview for the Covid-19 Tracker landing page with alternating feature blocks coding challenge](./designs/Desktop.png)
+# Functionality:
 
-## Welcome! 👋
+1. Findout country statics.
+2. View state statics datewise.
 
-**To do this challenges, you need a basic understanding of HTML and CSS.**
+# Pictorial representation by charts
 
-## Where to find everything
+1. Doughnut chart for wordwide test cases.
+2. Line chart for monthly reported cases.
+
+## Desktop View! 👋
+
+![Design preview for the Covid-19 Tracker landing page with alternating feature blocks coding challenge](./designs/desktop.png)
+
+## Mobile View! 👋
+
+![Design preview for the Covid-19 Tracker landing page with alternating feature blocks coding challenge](./designs/mobile1.png)
+
+![Design preview for the Covid-19 Tracker landing page with alternating feature blocks coding challenge](./designs/mobile2.png)
+
+![Design preview for the Covid-19 Tracker landing page with alternating feature blocks coding challenge](./designs/mobile3.png)
+
+**Used reactjs , react hooks css3 and external API**
