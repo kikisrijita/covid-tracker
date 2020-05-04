@@ -4,7 +4,7 @@ import { AffectedStateDetails } from "./AffectedStateDetails";
 
 export const Header = () => {
   const [countryData, setCountryData] = useState([]);
-  const [countryName, setCountryName] = useState("Afghanistan");
+  const [countryName, setCountryName] = useState("India");
 
   useEffect(() => {
     fetch(`https://covid19.mathdro.id/api/countries`)
