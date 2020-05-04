@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
+import moment from "moment";
 
 export const LineChart = () => {
   const [chartData, setChartData] = useState({});
@@ -27,15 +28,19 @@ export const LineChart = () => {
         },
       ],
       // These labels appear in the legend and in the tooltips when hovering different arcs
-      labels: ["jan", "feb", "march", "april", "may"],
+      labels: [],
     };
 
-    fetch(`https://disease.sh/v2/historical/all?lastdays=30`)
+    fetch(`https://disease.sh/v2/historical/all?lastdays=15`)
       .then((res) => res.json())
       .then((data) => {
+        const labelVal = Object.keys(data.cases).forEach((k) =>
+          chartObj.labels.push(moment(k).local().format("MMM D"))
+        );
+
         const confirmedArr = Object.values(data.cases).map((el) => el);
         chartObj.datasets[0].data = confirmedArr;
-        console.log(1, confirmedArr);
+
         const recoveredArr = Object.values(data.recovered).map((el) => el);
         chartObj.datasets[1].data = recoveredArr;
 
@@ -56,7 +61,7 @@ export const LineChart = () => {
     <div>
       <br />
       <br />
-      <h3 className="heading-primary">Monthly record:</h3>
+      <h3 className="heading-primary">Past 15 days record:</h3>
       <Line
         className="line-chart"
         data={chartData}
@@ -66,7 +71,6 @@ export const LineChart = () => {
             yAxes: [
               {
                 ticks: {
-                  max: 1500000,
                   min: 0,
                 },
               },
